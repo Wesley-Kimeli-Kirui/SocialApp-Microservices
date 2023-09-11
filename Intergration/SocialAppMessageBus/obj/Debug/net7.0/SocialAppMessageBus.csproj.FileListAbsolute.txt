@@ -1,0 +1,12 @@
+D:\The Jitu\SocialApp-Microservices\Intergration\SocialAppMessageBus\bin\Debug\net7.0\SocialAppMessageBus.deps.json
+D:\The Jitu\SocialApp-Microservices\Intergration\SocialAppMessageBus\bin\Debug\net7.0\SocialAppMessageBus.dll
+D:\The Jitu\SocialApp-Microservices\Intergration\SocialAppMessageBus\bin\Debug\net7.0\SocialAppMessageBus.pdb
+D:\The Jitu\SocialApp-Microservices\Intergration\SocialAppMessageBus\obj\Debug\net7.0\SocialAppMessageBus.csproj.AssemblyReference.cache
+D:\The Jitu\SocialApp-Microservices\Intergration\SocialAppMessageBus\obj\Debug\net7.0\SocialAppMessageBus.GeneratedMSBuildEditorConfig.editorconfig
+D:\The Jitu\SocialApp-Microservices\Intergration\SocialAppMessageBus\obj\Debug\net7.0\SocialAppMessageBus.AssemblyInfoInputs.cache
+D:\The Jitu\SocialApp-Microservices\Intergration\SocialAppMessageBus\obj\Debug\net7.0\SocialAppMessageBus.AssemblyInfo.cs
+D:\The Jitu\SocialApp-Microservices\Intergration\SocialAppMessageBus\obj\Debug\net7.0\SocialAppMessageBus.csproj.CoreCompileInputs.cache
+D:\The Jitu\SocialApp-Microservices\Intergration\SocialAppMessageBus\obj\Debug\net7.0\SocialAppMessageBus.dll
+D:\The Jitu\SocialApp-Microservices\Intergration\SocialAppMessageBus\obj\Debug\net7.0\refint\SocialAppMessageBus.dll
+D:\The Jitu\SocialApp-Microservices\Intergration\SocialAppMessageBus\obj\Debug\net7.0\SocialAppMessageBus.pdb
+D:\The Jitu\SocialApp-Microservices\Intergration\SocialAppMessageBus\obj\Debug\net7.0\ref\SocialAppMessageBus.dll
