@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WWmQkjv0zm4uikinzPw5mp7hxA4xhfv9Aq3ex+Idg3q/7pyHv14wm8oCyEK2nY3fXU1Wo057QcEqd9YgPAlDZQ==",
+  "dgSpecHash": "4gc5XY58nUsOZHAIXDR1Opf9PoS7iIuzThzbOH0rdhUMATScS2Pwj6zvCdxZXekmOsAH0Llk/UNoKZ2zw372zQ==",
   "success": true,
-  "projectFilePath": "D:\\The Jitu\\SocialApp-Microservices\\Intergration\\SocialAppMessageBus\\SocialAppMessageBus.csproj",
+  "projectFilePath": "d:\\The Jitu\\SocialApp-Microservices\\SocialAppMessageBus\\SocialAppMessageBus.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Wesley\\.nuget\\packages\\azure.core\\1.34.0\\azure.core.1.34.0.nupkg.sha512",
     "C:\\Users\\Wesley\\.nuget\\packages\\azure.core.amqp\\1.3.0\\azure.core.amqp.1.3.0.nupkg.sha512",

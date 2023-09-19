@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HvsFpwa0/cgZ2caoFzC4+uZM8oZax34l8l8wNRKwZI28sSnMQ46CQEIwbO0mha9g048eu1fs2uoH38zaflq40g==",
+  "dgSpecHash": "Y+ckOvMK9fHxisAlU002m3ueISEYRQWKidCL8OYwTVvo7+F94md30aVuJyRH5+9pqAKifw1RADo3q3EZQCHdOw==",
   "success": true,
-  "projectFilePath": "D:\\The Jitu\\SocialApp-Microservices\\Auth_Service\\Auth_Service.csproj",
+  "projectFilePath": "d:\\The Jitu\\SocialApp-Microservices\\Auth_Service\\Auth_Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Wesley\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Wesley\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

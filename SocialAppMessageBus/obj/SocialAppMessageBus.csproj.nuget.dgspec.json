@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\The Jitu\\SocialApp-Microservices\\Intergration\\SocialAppMessageBus\\SocialAppMessageBus.csproj": {}
+    "d:\\The Jitu\\SocialApp-Microservices\\SocialAppMessageBus\\SocialAppMessageBus.csproj": {}
   },
   "projects": {
-    "D:\\The Jitu\\SocialApp-Microservices\\Intergration\\SocialAppMessageBus\\SocialAppMessageBus.csproj": {
+    "d:\\The Jitu\\SocialApp-Microservices\\SocialAppMessageBus\\SocialAppMessageBus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\The Jitu\\SocialApp-Microservices\\Intergration\\SocialAppMessageBus\\SocialAppMessageBus.csproj",
+        "projectUniqueName": "d:\\The Jitu\\SocialApp-Microservices\\SocialAppMessageBus\\SocialAppMessageBus.csproj",
         "projectName": "SocialAppMessageBus",
-        "projectPath": "D:\\The Jitu\\SocialApp-Microservices\\Intergration\\SocialAppMessageBus\\SocialAppMessageBus.csproj",
+        "projectPath": "d:\\The Jitu\\SocialApp-Microservices\\SocialAppMessageBus\\SocialAppMessageBus.csproj",
         "packagesPath": "C:\\Users\\Wesley\\.nuget\\packages\\",
-        "outputPath": "D:\\The Jitu\\SocialApp-Microservices\\Intergration\\SocialAppMessageBus\\obj\\",
+        "outputPath": "d:\\The Jitu\\SocialApp-Microservices\\SocialAppMessageBus\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Wesley\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Wesley\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

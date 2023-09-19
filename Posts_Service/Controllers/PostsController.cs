@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -15,134 +16,96 @@ namespace Posts_Service.Controllers
     [Route("api/[controller]")]
     public class PostsController : ControllerBase
     {
-        private readonly IPosts postsService;
-        private readonly IMapper mapper;
-        private readonly ResponseDto responseDto;
+        private readonly IPosts _postsService;
+        private readonly IMapper _mapper;
+        private readonly ResponseDto _responseDto;
 
         public PostsController(IPosts postsService, IMapper mapper)
         {
-            postsService = postsService;
-            mapper = mapper;
-            responseDto = new ResponseDto();
+            _postsService = postsService;
+            _mapper = mapper;
+            _responseDto = new ResponseDto();
         }
-
+        private string GetUserIdFromToken()
+        {
+            var token = Request.Headers["Authorization"].ToString();
+            var decodedToken = new JwtSecurityTokenHandler().ReadJwtToken(token.Split(" ")[1]);
+            return decodedToken.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
+        }
         [HttpPost]
-        public async Task<ActionResult<ResponseDto>> CreatePost([FromBody] PostsDto postsDto)
+        public async Task<ActionResult> CreatePost([FromBody] PostRequestDto postRequestDto)
         {
-            if (postsDto == null)
+            var newPost = _mapper.Map<Posts>(postRequestDto);
+            var userId = GetUserIdFromToken();
+            newPost.UserId = Guid.Parse(userId);
+            var response = await _postsService.CreatePost(newPost);
+            if (response != null)
             {
-                responseDto.Message = "No post was found in the request body.";
-                return BadRequest(responseDto);
+                _responseDto.IsSuccess = true;
+                _responseDto.Message = response;
+                return Ok(_responseDto);
             }
-
-            try
-            {
-                var post = mapper.Map<Posts>(postsDto);
-                var postId = await postsService.CreatePost(post);
-                responseDto.Payload = postId;
-                responseDto.IsSuccess = true;
-                responseDto.Message = "Post was successfully created.";
-                return Ok(responseDto);
-            }
-            catch (Exception e)
-            {
-                responseDto.Message = e.StackTrace;
-                return StatusCode(500, responseDto);
-            }
+            _responseDto.IsSuccess = false;
+            _responseDto.Message = "Something went wrong";
+            return BadRequest(_responseDto);
         }
-        [HttpPut]
-        public async Task<ActionResult<ResponseDto>> UpdatePost([FromBody] PostsDto postsDto)
+        [HttpGet]
+        public async Task<ActionResult> UpdatePost([FromBody] PostRequestDto postRequestDto)
         {
-            if (postsDto == null)
+            var post = _mapper.Map<Posts>(postRequestDto);
+            var response = await _postsService.UpdatePost(post);
+            if (response != null)
             {
-                responseDto.Message = "No post was found in the request body.";
-                return BadRequest(responseDto);
+                _responseDto.IsSuccess = true;
+                _responseDto.Message = response;
+                return Ok(_responseDto);
             }
-
-            try
-            {
-                var post = mapper.Map<Posts>(postsDto);
-                var postId = await postsService.UpdatePost(post);
-                responseDto.Payload = postId;
-                responseDto.IsSuccess = true;
-                responseDto.Message = "Post was successfully updated.";
-                return Ok(responseDto);
-            }
-            catch (Exception e)
-            {
-                responseDto.Message = e.StackTrace;
-                return StatusCode(500, responseDto);
-            }
+            _responseDto.IsSuccess = false;
+            _responseDto.Message = "Something went wrong";
+            return BadRequest(_responseDto);
         }
-        [HttpPut("{postId}")]
-        public async Task<ActionResult<ResponseDto>> UpdatePostContent(Guid postId, string postContent)
+        [HttpPut("{postId}/{postContent}")]
+        public async Task<ActionResult> UpdatePostContent(Guid postId, string postContent)
         {
-            if (postId == Guid.Empty)
+            var response = await _postsService.UpdatePostContent(postId, postContent);
+            if (response != null)
             {
-                responseDto.Message = "No post was found in the request body.";
-                return BadRequest(responseDto);
+                _responseDto.IsSuccess = true;
+                _responseDto.Message = response;
+                return Ok(_responseDto);
             }
-
-            try
-            {
-                var post = await postsService.UpdatePostContent(postId, postContent);
-                responseDto.Payload = post;
-                responseDto.IsSuccess = true;
-                responseDto.Message = "Post was successfully updated.";
-                return Ok(responseDto);
-            }
-            catch (Exception e)
-            {
-                responseDto.Message = e.StackTrace;
-                return StatusCode(500, responseDto);
-            }
+            _responseDto.IsSuccess = false;
+            _responseDto.Message = "Something went wrong";
+            return BadRequest(_responseDto);
         }
         [HttpGet("{postId}")]
-        public async Task<ActionResult<ResponseDto>> GetPostById(Guid postId)
+        public async Task<ActionResult> GetPostById(Guid postId)
         {
-            if (postId == Guid.Empty)
+            var post = await _postsService.GetPostById(postId);
+            if (post != null)
             {
-                responseDto.Message = "No post was found in the request body.";
-                return BadRequest(responseDto);
+                _responseDto.IsSuccess = true;
+                _responseDto.Payload = post;
+                return Ok(_responseDto);
             }
-
-            try
-            {
-                var post = await postsService.GetPostById(postId);
-                responseDto.Payload = post;
-                responseDto.IsSuccess = true;
-                responseDto.Message = "Post was successfully retrieved.";
-                return Ok(responseDto);
-            }
-            catch (Exception e)
-            {
-                responseDto.Message = e.StackTrace;
-                return StatusCode(500, responseDto);
-            }
+            _responseDto.IsSuccess = false;
+            _responseDto.Message = "Something went wrong";
+            return NotFound(_responseDto);
         }
-        [HttpDelete("{postId}")]
-        public async Task<ActionResult<ResponseDto>> DeletePost(Guid postId)
+        [HttpGet("delete/{postId}")]
+        public async Task<ActionResult> DeletePost(Guid postId)
         {
-            if (postId == Guid.Empty)
+            var post = await _postsService.GetPostById(postId);
+            if (post != null)
             {
-                responseDto.Message = "No post was found in the request body.";
-                return BadRequest(responseDto);
+                var response = await _postsService.DeletePost(postId);
+                _responseDto.IsSuccess = true;
+                _responseDto.Message = response;
+                return Ok(_responseDto);
             }
-
-            try
-            {
-                var post = await postsService.DeletePost(postId);
-                responseDto.Payload = post;
-                responseDto.IsSuccess = true;
-                responseDto.Message = "Post was successfully deleted.";
-                return Ok(responseDto);
-            }
-            catch (Exception e)
-            {
-                responseDto.Message = e.StackTrace;
-                return StatusCode(500, responseDto);
-            }
+            _responseDto.IsSuccess = false;
+            _responseDto.Message = "Something went wrong";
+            return NotFound(_responseDto);
         }
-
     }
 }

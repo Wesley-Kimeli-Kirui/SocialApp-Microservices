@@ -21,6 +21,8 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // add services to the container for dependency injection
 builder.Services.AddScoped<IPosts, PostService>();
 
+builder.AddSwaggenGenExtension();
+builder.AddAppAuthentication();
 
 var app = builder.Build();
 
@@ -33,6 +35,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseMigration();
 app.UseHttpsRedirection();
+app.UseAuthentication();
 
 app.UseAuthorization();
 

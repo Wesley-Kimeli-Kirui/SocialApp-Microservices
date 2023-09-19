@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TPnunblEz8vE2cWrJhBvEFQrFk0yLzy4PovxXADHxGC6mLKkNmC9xFq/iLMzGyPuVjsNFSCcekCqmFlc0PfVcw==",
+  "dgSpecHash": "j/dvlagPi5oelowhMKjSUbOo35NMHw62usqfeFnd4ESRZ0a9wCEbY6OHEUZeLV8rqXrXmB6RnT6u2gg0E9P6dQ==",
   "success": true,
-  "projectFilePath": "d:\\The Jitu\\SocialApp-Microservices\\Email_Service\\Email_Service\\Email_Service.csproj",
+  "projectFilePath": "d:\\The Jitu\\SocialApp-Microservices\\Email_Service\\Email_Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Wesley\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Wesley\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

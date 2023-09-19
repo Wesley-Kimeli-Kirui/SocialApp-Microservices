@@ -77,3 +77,4 @@ D:\The Jitu\SocialApp-Microservices\Posts_Service\bin\Debug\net7.0\Microsoft.Ent
 D:\The Jitu\SocialApp-Microservices\Posts_Service\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 D:\The Jitu\SocialApp-Microservices\Posts_Service\bin\Debug\net7.0\Mono.TextTemplating.dll
 D:\The Jitu\SocialApp-Microservices\Posts_Service\bin\Debug\net7.0\System.CodeDom.dll
+D:\The Jitu\SocialApp-Microservices\Posts_Service\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Posts_Service.Data;
 using Posts_Service.Models;
@@ -13,16 +14,19 @@ namespace Posts_Service.Services
     public class PostService : IPosts
     {
         private readonly PostsDbContext _db;
-        public PostService(PostsDbContext db)
+        private readonly IMapper _mapper;
+        public PostService(PostsDbContext db, IMapper mapper)
         {
             _db = db;
+            _mapper = mapper;
         }
 
         public async Task<string> CreatePost(Posts posts)
         {
             _db.Posts.Add(posts);
             _db.SaveChanges();
-            return await Task.FromResult("Post created successfully");
+            return "Post created successfully";
+
         }
 
         public Task<string> DeletePost(Guid postId)
@@ -32,10 +36,10 @@ namespace Posts_Service.Services
             return Task.FromResult("Post deleted successfully");
         }
 
-        public async Task<PostsDto> GetPostById(Guid postId)
+        public Task<PostsDto> GetPostById(Guid postId)
         {
             _db.Posts.Where(x => x.PostId == postId).FirstOrDefault();
-            return await Task.FromResult(new PostsDto());
+            return Task.FromResult(new PostsDto());
         }
 
         public Task<string> UpdatePost(Posts posts)
